@@ -1,7 +1,6 @@
 // https://notehub-public.goit.study/api/docs
 
 import axios, { type InternalAxiosRequestConfig } from "axios";
-// import { toast } from "react-toastify";
 import { type NewNote, type Note, type NoteTag } from "@/types/note";
 
 const api = axios.create({
@@ -15,18 +14,6 @@ api.interceptors.request.use((config: InternalAxiosRequestConfig): InternalAxios
   }
   return config;
 });
-
-// api.interceptors.response.use(
-//   (response) => response,
-//   (error: unknown) => {
-//     const message = axios.isAxiosError<{ message?: string }>(error)
-//       ? (error.response?.data?.message ?? error.message)
-//       : "Something went wrong. Please try again.";
-//
-//     toast.error(message || "Request failed. Please try again.");
-//     return Promise.reject(error);
-//   },
-// );
 
 interface SearchNotesRequest {
   searchText?: string;

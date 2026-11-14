@@ -21,11 +21,9 @@ async function NoteDetails({ params }: NoteDetailsProps) {
   });
 
   return (
-    <>
-      <HydrationBoundary state={dehydrate(queryClient)}>
-        <NoteDetailsClient />
-      </HydrationBoundary>
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <NoteDetailsClient />
+    </HydrationBoundary>
   );
 }
 

@@ -24,6 +24,7 @@ function NotesClient() {
     queryFn: () => fetchNotes({ searchText: searchText, page: page }),
     placeholderData: keepPreviousData,
     refetchOnMount: false,
+    throwOnError: true,
   });
 
   const updateSearchText = useDebouncedCallback(
