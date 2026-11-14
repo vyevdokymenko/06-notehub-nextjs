@@ -1,10 +1,17 @@
 import css from "@/components/Footer/Footer.module.css";
+import { cacheLife } from "next/cache";
 
-function Footer() {
+async function getYear() {
+  "use cache";
+  cacheLife("max");
+  return new Date().getFullYear();
+}
+
+async function Footer() {
   return (
     <footer className={css.footer}>
       <div className={css.content}>
-        <p>© {new Date().getFullYear()} NoteHub. All rights reserved.</p>
+        <p>© {await getYear()} NoteHub. All rights reserved.</p>
         <div className={css.wrap}>
           <p>Developer: Vladyslav Yevdokymenko</p>
           <p>
