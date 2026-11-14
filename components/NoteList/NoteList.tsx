@@ -4,6 +4,7 @@ import { useState } from "react";
 import { deleteNote } from "@/lib/api";
 import { Note } from "@/types/note";
 import Loader from "@/components/Loader/Loader";
+import Link from "next/link";
 
 interface NoteListProps {
   queryKey: string;
@@ -35,6 +36,9 @@ function NoteList({ notes, queryKey }: NoteListProps) {
           {deletingId === note.id && <Loader />}
           <div className={css.footer}>
             <span className={css.tag}>{note.tag}</span>
+            <Link href={`/notes/${note.id}`} className={css.link}>
+              View details
+            </Link>
             <button
               className={css.button}
               onClick={() => handleDelete(note.id)}

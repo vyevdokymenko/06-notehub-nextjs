@@ -23,6 +23,7 @@ function NotesClient() {
     queryKey: [QUERY_KEY, searchText, page],
     queryFn: () => fetchNotes({ searchText: searchText, page: page }),
     placeholderData: keepPreviousData,
+    refetchOnMount: false,
   });
 
   const updateSearchText = useDebouncedCallback(
